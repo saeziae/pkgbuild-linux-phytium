@@ -1,0 +1,12 @@
+diff --git a/drivers/i2c/busses/i2c-designware-platdrv.c b/drivers/i2c/busses/i2c-designware-platdrv.c
+index ba043b547..7d3d58894 100644
+--- a/drivers/i2c/busses/i2c-designware-platdrv.c
++++ b/drivers/i2c/busses/i2c-designware-platdrv.c
+@@ -57,6 +57,7 @@ static const struct acpi_device_id dw_i2c_acpi_match[] = {
+ 	{ "HISI02A2", 0 },
+ 	{ "HISI02A3", 0 },
+ 	{ "HYGO0010", ACCESS_INTR_MASK },
++	{ "PHYT0003", 0 },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(acpi, dw_i2c_acpi_match);
