@@ -1,58 +1,54 @@
 # Maintainer: Estela ad Astra <i@estela.cn>
 
 pkgbase=linux-phytium
-_majver=5.19
-_srcname=linux-$_majver
-_kernelname=${pkgbase#linux}
 _desc="Linux Kernel for Phytium"
-pkgver=5.19.11
+pkgver=6.0
+_majver=6.0
 pkgrel=1
+_srcname=linux-$pkgver
 arch=(aarch64)
 url="http://kernel.org/"
 license=(GPL2)
 makedepends=(bc libelf pahole cpio perl tar xz git)
 options=('!strip')
-source=("http://www.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar.xz"
-        "http://www.kernel.org/pub/linux/kernel/v5.x/patch-${pkgver}.xz"
+source=("http://www.kernel.org/pub/linux/kernel/v${pkgver%%.*}.x/${_srcname}.tar.xz"
         '0001-phytium-config.patch'
         '0002-phytium-ethernet-stmmac.patch'
         '0003-phytium-i2c.patch'
         '0004-phytium-mailbox.patch'
-        "https://github.com/zhmars/cjktty-patches/raw/master/v5.x/cjktty-${_majver}.patch"
+        "https://github.com/zhmars/cjktty-patches/raw/master/v${pkgver%%.*}.x/cjktty-${_majver}.patch"
         'https://github.com/zhmars/cjktty-patches/raw/master/cjktty-add-cjk32x32-font-data.patch'
         'config')
-md5sums=('f91bfe133d2cb1692f705947282e123a'
-         'b2e6bc960af8fa09d9348e17d015c219'
+md5sums=('d681bd1d62d48049a4874646f6774d92'
          '306246f0c84ac42e1e9a281501523b37'
          '0fd6f18f6e5f1a36353b9e3b6b3dae59'
          'e35ac6093d6c9b40208ef1043bc818a6'
          '1afc917c70bde299e5343b39d5953c0f'
-         'db1776ce219d87088de80390548e466f'
-         '874135a91d0475d3509b80007cf1665f'
+         'd61bd27f238c32bf8ed397f64fa08916'
+         'b2dde194f5b6a6fa9ab1b5da87aa51a0'
          '72e3bd34382a5e9b4fb40d5fbb81da34')
 
 prepare() {
   cd $_srcname
-
-  echo "Setting version..."
-  scripts/setlocalversion --save-scmversion
-  echo "-$pkgrel" > localversion.10-pkgrel
-  echo "${pkgbase#linux}" > localversion.20-pkgname
-
-  git apply --whitespace=nowarn ../patch-${pkgver}
 
   local src
   for src in "${source[@]}"; do
     src="${src##*/}"
     [[ $src = *.patch ]] || continue
     echo "Applying patch $src..."
-    git apply "../$src"
+    patch -Np1 < "../$src"
   done
+
+  echo "Setting version..."
+  scripts/setlocalversion --save-scmversion
+  echo "-$pkgrel" > localversion.10-pkgrel
+  echo "${pkgbase#linux}" > localversion.20-pkgname
 
   echo "Setting config..."
   cp ../config .config
   make olddefconfig
   diff -u ../config .config || :
+  cp .config ../../config.new
 
   make -s kernelrelease > version
   echo "Prepared $pkgbase version $(<version)"
