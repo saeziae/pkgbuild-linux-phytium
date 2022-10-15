@@ -2,8 +2,8 @@
 
 pkgbase=linux-phytium
 _desc="Linux Kernel for Phytium"
-pkgver=6.0
-_majver=6.0
+pkgver=6.0.2
+_majver=$(cut -d. -f1-2 <<< ${pkgver})
 pkgrel=1
 _srcname=linux-$pkgver
 arch=(aarch64)
