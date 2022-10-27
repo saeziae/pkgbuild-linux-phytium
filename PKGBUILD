@@ -2,7 +2,7 @@
 
 pkgbase=linux-phytium
 _desc="Linux Kernel for Phytium"
-pkgver=6.0.2
+pkgver=6.0.5
 _majver=$(cut -d. -f1-2 <<< ${pkgver})
 pkgrel=1
 _srcname=linux-$pkgver
@@ -16,14 +16,16 @@ source=("http://www.kernel.org/pub/linux/kernel/v${pkgver%%.*}.x/${_srcname}.tar
         '0002-phytium-ethernet-stmmac.patch'
         '0003-phytium-i2c.patch'
         '0004-phytium-mailbox.patch'
+	'dcn_arm64.patch'
         "https://github.com/zhmars/cjktty-patches/raw/master/v${pkgver%%.*}.x/cjktty-${_majver}.patch"
         'https://github.com/zhmars/cjktty-patches/raw/master/cjktty-add-cjk32x32-font-data.patch'
         'config')
-md5sums=('5a7ea40f0ec23b0800e8b52cb44ed04c'
+md5sums=('6c36b53e3928ba45b656f64303b71662'
          '306246f0c84ac42e1e9a281501523b37'
          '0fd6f18f6e5f1a36353b9e3b6b3dae59'
          'e35ac6093d6c9b40208ef1043bc818a6'
          '1afc917c70bde299e5343b39d5953c0f'
+         '9c1c8ad90edbce7a4c3a75a2b6302056'
          'd61bd27f238c32bf8ed397f64fa08916'
          'b2dde194f5b6a6fa9ab1b5da87aa51a0'
          '9eac9e1699cf5a2279bb94c14c751cb5')
