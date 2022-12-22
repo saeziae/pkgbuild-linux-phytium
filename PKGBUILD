@@ -2,7 +2,7 @@
 
 pkgbase=linux-phytium
 _desc="Linux Kernel for Phytium"
-pkgver=6.1
+pkgver=6.0.5
 _majver=$(cut -d. -f1-2 <<< ${pkgver})
 pkgrel=1
 _srcname=linux-$pkgver
@@ -16,23 +16,19 @@ source=("http://www.kernel.org/pub/linux/kernel/v${pkgver%%.*}.x/${_srcname}.tar
         '0002-phytium-ethernet-stmmac.patch'
         '0003-phytium-i2c.patch'
         '0004-phytium-mailbox.patch'
-        'v3-1-2-drm-amd-display-move-remaining-FPU-code-to-dml-folder.patch'
-        'v3-2-2-drm-amd-display-move-remaining-FPU-code-to-dml-folder.patch'
-	      'v4a-1-1-drm-amd-display-add-DCN-support-for-ARM64.patch'
+	'dcn_arm64.patch'
         "https://github.com/zhmars/cjktty-patches/raw/master/v${pkgver%%.*}.x/cjktty-${_majver}.patch"
         'https://github.com/zhmars/cjktty-patches/raw/master/cjktty-add-cjk32x32-font-data.patch'
         'config')
-md5sums=('475320de08f16c9fa486fc4edfe98b30'
+md5sums=('6c36b53e3928ba45b656f64303b71662'
          '306246f0c84ac42e1e9a281501523b37'
          '0fd6f18f6e5f1a36353b9e3b6b3dae59'
          'e35ac6093d6c9b40208ef1043bc818a6'
          '1afc917c70bde299e5343b39d5953c0f'
-         'ab5291195e19a5bcc38c2e7f85547f7e'
-         '57dc78a0db9be78518d17585e04194fe'
-         'ed5fc66fb6d02cf63561d670ea688055'
-         '9ac3e60b839585eaffc96ac4e8df7e5c'
+         '9c1c8ad90edbce7a4c3a75a2b6302056'
+         'd61bd27f238c32bf8ed397f64fa08916'
          'b2dde194f5b6a6fa9ab1b5da87aa51a0'
-         '39911fbf329fe4b8b0a5cc74c3f8b4e8')
+         '9eac9e1699cf5a2279bb94c14c751cb5')
 
 prepare() {
   cd $_srcname
