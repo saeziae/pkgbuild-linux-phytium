@@ -6,6 +6,7 @@
 - [x] On-chip Ethernet 片上以太网
 - [ ] SCPI
 - [ ] On-chip Audio 片上音频
+- [x] (Mainline) AMD DCN
 
 Tested on FT-D2000
 
