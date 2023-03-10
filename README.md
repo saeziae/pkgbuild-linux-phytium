@@ -14,7 +14,7 @@ Tested on FT-D2000
 
 ## Binary 二进制包
 
-See <https://repo.saezi.ae/readme.html>
+See <https://repo.saezi.ae/readme.html> <https://repo.saezi.ae/archlinux/saeziae/aarch64/>
 
 ## Based on the work of  基于
 

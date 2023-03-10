@@ -2,7 +2,7 @@
 
 pkgbase=linux-phytium
 _desc="Linux Kernel for Phytium"
-pkgver=6.2
+pkgver=6.2.3
 pkgrel=1
 _srcname=linux-$pkgver
 _majver=$(cut -f-2 -d. <<<$pkgver)
