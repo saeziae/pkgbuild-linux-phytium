@@ -19,14 +19,14 @@ source=("http://www.kernel.org/pub/linux/kernel/v${pkgver%%.*}.x/${_srcname}.tar
         "https://github.com/zhmars/cjktty-patches/raw/master/v${pkgver%%.*}.x/cjktty-$_majver.patch"
         'https://github.com/zhmars/cjktty-patches/raw/master/cjktty-add-cjk32x32-font-data.patch'
         'config')
-md5sums=('787862593d7bf354cf1a5c37e21fc147'
+md5sums=('c6f5873837275e6ba35736bbe2370cbe'
          '306246f0c84ac42e1e9a281501523b37'
          '0fd6f18f6e5f1a36353b9e3b6b3dae59'
          'e35ac6093d6c9b40208ef1043bc818a6'
          '1afc917c70bde299e5343b39d5953c0f'
          '72425cc8f8a88e8036714fbf4203abd0'
          'b2dde194f5b6a6fa9ab1b5da87aa51a0'
-         '6cac927a261aa32a6a68782f2c4f8df1')
+         'd253c8c481ee6a2ec8b24e2a358b2ad0')
 
 prepare() {
   cd $_srcname
