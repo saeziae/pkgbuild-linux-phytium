@@ -2,7 +2,7 @@
 
 pkgbase=linux-phytium
 _desc="Linux Kernel for Phytium"
-pkgver=6.2.3
+pkgver=6.2.11
 pkgrel=1
 _srcname=linux-$pkgver
 _majver=$(cut -f-2 -d. <<<$pkgver)
@@ -19,7 +19,7 @@ source=("http://www.kernel.org/pub/linux/kernel/v${pkgver%%.*}.x/${_srcname}.tar
         "https://github.com/zhmars/cjktty-patches/raw/master/v${pkgver%%.*}.x/cjktty-$_majver.patch"
         'https://github.com/zhmars/cjktty-patches/raw/master/cjktty-add-cjk32x32-font-data.patch'
         'config')
-md5sums=('c6f5873837275e6ba35736bbe2370cbe'
+md5sums=('78d3ab3a52fe283aabca27dad4005d07'
          '306246f0c84ac42e1e9a281501523b37'
          '0fd6f18f6e5f1a36353b9e3b6b3dae59'
          'e35ac6093d6c9b40208ef1043bc818a6'
